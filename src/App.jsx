@@ -32,6 +32,12 @@ function App() {
     setScreen('home');
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('sudoku-user');
+    setUser(null);
+    setScreen('login');
+  };
+
   const startNewGame = (difficulty) => {
     setGameDifficulty(difficulty);
     setScreen('game');
@@ -57,6 +63,7 @@ function App() {
           onStartGame={startNewGame} 
           onToggleTheme={toggleTheme}
           currentTheme={theme}
+          onLogout={handleLogout}
         />
       )}
       {screen === 'game' && (

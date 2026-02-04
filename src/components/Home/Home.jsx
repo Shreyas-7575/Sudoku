@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, History, Trophy, User, X } from 'lucide-react';
+import { Play, History, Trophy, User, X, LogOut } from 'lucide-react';
 import HistoryBoard from './HistoryBoard';
 
-const Home = ({ user, onStartGame, onToggleTheme, currentTheme }) => {
+const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
   const [history, setHistory] = React.useState([]);
   const [showHistory, setShowHistory] = React.useState(false);
   const [selectedHistoryEntry, setSelectedHistoryEntry] = React.useState(null);
@@ -91,6 +91,14 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme }) => {
               />
             ))}
           </div>
+          <button
+            onClick={onLogout}
+            className="icon-btn glass"
+            style={{ padding: '8px', borderRadius: '10px', color: 'var(--text-muted)' }}
+            title="Sign Out"
+          >
+            <LogOut size={20} />
+          </button>
         </div>
       </header>
 
