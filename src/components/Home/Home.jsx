@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, History, Trophy, User, X, LogOut } from 'lucide-react';
-import logo from '../../assets/logo_unique.png';
+import logo from '../../assets/logo_custom.png';
 import HistoryBoard from './HistoryBoard';
 
 const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {

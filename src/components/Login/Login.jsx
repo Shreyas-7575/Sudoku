@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import logo from '../../assets/logo_unique.png';
+import logo from '../../assets/logo_custom.png';
 import { Mail, LogIn } from 'lucide-react';
 
 const Login = ({ onLogin }) => {
