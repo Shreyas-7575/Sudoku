@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   preview: {
-    allowedHosts: ['sudoku-pro.up.railway.app'],
+    allowedHosts: ['sudokey.up.railway.app'],
   },
 })
 
