@@ -209,3 +209,61 @@
 
 .btn-primary { background: var(--primary); color: white; }
 .btn-secondary { background: var(--bg-color); border: 1px solid var(--border-color); }
+
+@media (max-width: 500px) {
+  .game-wrapper {
+    padding: 10px;
+    gap: 12px;
+  }
+  
+  .game-main {
+    gap: 16px;
+  }
+
+  .number-pad {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  /* Make 6-9 flow to next row */
+  .num-btn:nth-child(n+6) {
+    grid-column: span 1;
+  }
+
+  /* Make the last empty spot take up remaining space if needed */
+  
+  .num-btn {
+    aspect-ratio: 1/1;
+    font-size: 1.2rem;
+  }
+
+  .stats-bar {
+    padding: 0 4px 4px;
+  }
+  
+  .timer {
+    font-size: 0.9rem;
+  }
+  
+  .mistakes {
+    font-size: 0.7rem;
+  }
+
+  .tools-row {
+      gap: 4px;
+  }
+}
+
+@media (max-height: 700px) {
+    .game-wrapper {
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    .game-header {
+        padding: 5px 0;
+    }
+
+    .tools-row {
+        margin-bottom: 0;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, LogIn, Grid3X3 } from 'lucide-react';
+import logo from '../../assets/logo_unique.png';
+import { Mail, LogIn } from 'lucide-react';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -21,26 +22,15 @@ const Login = ({ onLogin }) => {
       style={{
         padding: '2.5rem',
         borderRadius: '24px',
-        width: '100%',
+        width: '90%',
+        margin: '0 auto',
         maxWidth: '400px',
         boxShadow: 'var(--shadow-md)',
         textAlign: 'center'
       }}
     >
       <div style={{ marginBottom: '2rem' }}>
-        <div style={{ 
-          background: 'var(--primary)', 
-          width: '64px', 
-          height: '64px', 
-          borderRadius: '16px', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center',
-          margin: '0 auto 1rem',
-          color: 'white'
-        }}>
-          <Grid3X3 size={32} />
-        </div>
+        <img src={logo} alt="Sudoku Pro Logo" style={{ width: '80px', height: '80px', borderRadius: '16px', marginBottom: '1rem', boxShadow: 'var(--shadow-md)' }} />
         <h1 style={{ fontSize: '1.8rem', fontWeight: '700', color: 'var(--text-main)' }}>Sudoku Pro</h1>
         <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>Login to save your progress</p>
       </div>
