@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, History, Trophy, User, X, LogOut } from 'lucide-react';
-import logo from '../../assets/logo_custom.png';
 import HistoryBoard from './HistoryBoard';
 
 const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
@@ -43,17 +42,20 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
   };
 
   return (
-    <div className="home-container" style={{ width: '100%', maxWidth: '600px', padding: '20px', margin: '0 auto' }}>
+    <div className="home-container" style={{ width: '100%', maxWidth: '600px', padding: '20px' }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{ 
             width: '40px', 
             height: '40px', 
-            borderRadius: '10px', 
-            overflow: 'hidden',
-             boxShadow: 'var(--shadow-sm)'
+            borderRadius: '50%', 
+            background: 'var(--primary)', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            color: 'white'
           }}>
-            <img src={logo} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <User size={20} />
           </div>
           <div>
             <h3 style={{ fontSize: '1rem', fontWeight: '600' }}>Hello, {user.name}!</h3>
@@ -231,16 +233,11 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
 
       <motion.div variants={container} initial="hidden" animate="show">
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <h1 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '0.5rem' }}>Sudoku Pro</h1>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '0.5rem' }}>Sudokey</h1>
           <p style={{ color: 'var(--text-muted)' }}>Choose your challenge level</p>
         </div>
 
-        <div className="difficulty-grid" style={{ 
-          display: 'grid', 
-          gridTemplateColumns: window.innerWidth < 600 ? '1fr' : 'repeat(2, 1fr)', 
-          gap: '16px', 
-          marginBottom: '3rem' 
-        }}>
+        <div className="difficulty-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', marginBottom: '3rem' }}>
           {difficulties.map((diff) => (
             <motion.button
               key={diff.id}
