@@ -261,7 +261,7 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
                 height: '12px', 
                 borderRadius: '50%', 
                 backgroundColor: diff.color,
-                boxShadow: `0 0 10px ${diff.color}88`
+                boxShadow: (diff.id === 'easy' || diff.id === 'medium') ? `0 0 10px ${diff.color}88` : 'none'
               }} />
               <div>
                 <h4 style={{ fontSize: '1.2rem', fontWeight: '700' }}>{diff.label}</h4>
