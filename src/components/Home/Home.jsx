@@ -43,8 +43,8 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
 
   return (
     <div className="home-container" style={{ width: '100%', maxWidth: '600px', padding: '20px' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem', flexWrap: 'wrap', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: '0', flex: '1 1 auto' }}>
           <div style={{ 
             width: '40px', 
             height: '40px', 
@@ -53,20 +53,21 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
-            color: 'white'
+            color: 'white',
+            flexShrink: 0
           }}>
             <User size={20} />
           </div>
-          <div>
-            <h3 style={{ fontSize: '1rem', fontWeight: '600' }}>Hello, {user.name}!</h3>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{user.email}</p>
+          <div style={{ minWidth: '0', overflow: 'hidden' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Hello, {user.name}!</h3>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.email}</p>
           </div>
         </div>
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
           <button 
             onClick={() => setShowHistory(!showHistory)}
             className="icon-btn glass" 
-            style={{ padding: '8px', borderRadius: '10px', position: 'relative' }}
+            style={{ padding: '8px', borderRadius: '10px', position: 'relative', flexShrink: 0 }}
           >
             <History size={20} color={showHistory ? 'var(--primary)' : 'var(--text-muted)'} />
             {history.length > 0 && (
@@ -75,7 +76,7 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
               </div>
             )}
           </button>
-          <div className="theme-selector glass" style={{ display: 'flex', padding: '4px', borderRadius: '12px', gap: '4px' }}>
+          <div className="theme-selector glass" style={{ display: 'flex', padding: '4px', borderRadius: '12px', gap: '4px', flexShrink: 0 }}>
             {['classic', 'dark', 'ocean', 'forest'].map(t => (
               <button 
                 key={t}
@@ -94,7 +95,7 @@ const Home = ({ user, onStartGame, onToggleTheme, currentTheme, onLogout }) => {
           <button
             onClick={onLogout}
             className="icon-btn glass"
-            style={{ padding: '8px', borderRadius: '10px', color: 'var(--text-muted)' }}
+            style={{ padding: '8px', borderRadius: '10px', color: 'var(--text-muted)', flexShrink: 0 }}
             title="Sign Out"
           >
             <LogOut size={20} />
