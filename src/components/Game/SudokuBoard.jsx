@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const SudokuBoard = ({ board, initialBoard, selectedCell, onCellClick, solution, notes }) => {
+const SudokuBoard = ({ board, initialBoard, selectedCell, onCellClick, solution, notes, difficulty }) => {
   const getCellClasses = (r, c) => {
     let classes = 'sudoku-cell';
     const isSelected = selectedCell?.r === r && selectedCell?.c === c;
@@ -12,15 +12,15 @@ const SudokuBoard = ({ board, initialBoard, selectedCell, onCellClick, solution,
     else if (val !== null) classes += ' user-input';
 
     if (isSelected) classes += ' selected';
-    else if (selectedCell) {
-      // Highlight related cells (same row, col, or box)
+    else if (selectedCell && difficulty !== 'hard' && difficulty !== 'expert') {
+      // Highlight related cells (same row, col, or box) - disabled for hard and expert
       const isSameRow = selectedCell.r === r;
       const isSameCol = selectedCell.c === c;
       const isSameBox = Math.floor(selectedCell.r / 3) === Math.floor(r / 3) && 
                        Math.floor(selectedCell.c / 3) === Math.floor(c / 3);
       if (isSameRow || isSameCol || isSameBox) classes += ' related';
       
-      // Highlight same numbers
+      // Highlight same numbers - disabled for hard and expert
       const selectedVal = board[selectedCell.r][selectedCell.c];
       if (selectedVal !== null && val === selectedVal) classes += ' same-num';
     }

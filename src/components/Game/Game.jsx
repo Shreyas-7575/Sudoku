@@ -221,6 +221,7 @@ const Game = ({ difficulty, onBack, onToggleTheme, currentTheme }) => {
           onCellClick={handleCellClick}
           solution={gameState.solution}
           notes={gameState.notes || []}
+          difficulty={difficulty}
         />
         
         <div className="controls-section">
